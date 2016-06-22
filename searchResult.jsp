@@ -12,11 +12,11 @@
     <div id="resultList">
 <!--         <ul> -->
             <!-- (3) -->
-            <form:form modelAttribute="saerchResult">
+            form:form modelAttribute="SaerchResult">
                 <table>
-                <c:forEach items="${results}" var="result">
+                <c:forEach items="${SaerchResult.results}" var="result" varStatus="status">
                     <tr>
-                        <td><form:radiobuttons path="choice" ></form></td>
+                        <td><form:radiobutton path="index" value=${status.index}></form></td>
                         <td>${f:h(result.userId)}</td>
                         <td>${f:h(result.name)}</td>
                         <td>${f:h(result.dateOfBirth)}</td>
