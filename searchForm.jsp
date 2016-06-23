@@ -19,50 +19,59 @@
         </c:if>
 
         <!-- (3) -->
-        <form:form action="${pageContext.request.contextPath}/searchResult">
+        <form:form action="${pageContext.request.contextPath}/searchResult"　method="post" modelAttribute="SaerchForm">
             <table>
                 <tr>
-                    <td><label for="userId">ユーザID:</label></td>
-                    <td><input type="text" id="userId" name="userId"></td><!-- (4) -->
+                    <td><form:label path="SaerchForm.userId">ユーザID:</form:label></td>
+                    <td><form:input path="SaerchForm.userId"/></td>
+                    <td><form:errors path="SaerchForm.userId"/></td>
                 </tr>
                 <tr>
-                    <td><label for="Name">ユーザ名:</label></td>
-                    <td><input type="text" id="Name" name="Name"/></td><!-- (5) -->
+                    <td><form:label path="SaerchForm.name">ユーザ名:</form:label></td>
+                    <td><form:input path="SaerchForm.name"/></td>
+                    <td><form:errors path="SaerchForm.name" /></td>
                 </tr>
                 <tr>
-                    <td><label for="dateOfBirth">生年月日:</label></td>
-                    <td><input type="text" id="dateOfBirth" name="dateOfBirth"/></td><!-- (5) -->
+                    <td><form:label path="SaerchForm.dateOfBirth">生年月日:</form:label></td>
+                    <td><form:input path="SaerchForm.dateOfBirth"/></td>
+                    <td><form:errors path="SaerchForm.dateOfBirth" /></td>
                 </tr>
                 <tr>
-                    <td><label for="address">住所:</label></td>
-                    <td><input type="text" id="address" name="address"/></td><!-- (5) -->
+                    <td><form:label path="SaerchForm.address">住所:</form:label></td>
+                    <td><form:input path="SaerchForm.address"/></td>
+                    <td><form:errors path="SaerchForm.address" /></td>
                 </tr>
                 <tr>
-                    <td><label for="phoneNumber">電話番号:</label></td>
-                    <td><input type="text" id="phoneNumber" name="phoneNumber"/></td><!-- (5) -->
+                    <td><form:label path="SaerchForm.phoneNumber">住所:</form:label></td>
+                    <td><form:input path="SaerchForm.phoneNumber"/></td>
+                    <td><form:errors path="SaerchForm.phoneNumber"/></td>
                 </tr>
                  <tr>
-                    <td><label for="authority">権限:</label></td>
+                    <td><form:label path="SaerchForm.authority">権限:</form:label></td>
                     <td>
-                        <select id="authority" name="authority">
-                            <option value="1">USER</option>
-                            <option value="2">ADMIN</option>
-                        </select>
+                        <form:select path="SaerchForm.authority">
+                            <form:option value="USER">USER</option>
+                            <form:option value="ADMIN">ADMIN</option>
+                        </form:select>
                     </td><!-- (5) -->
+                    <td><form:errors path="SaerchForm.authority" /></td>
+
                 </tr>
                  <tr>
-                    <td><label for="status">状態:</label></td>
+                    <td><form:label path="SaerchForm.status">状態:</form:label></td>
                     <td>
-                        <select id="status" name="status">
-                            <option value="1">ACTV</option>
-                            <option value="2">INIT</option>
-                            <option value="3">RIMV</option><!-- 怪しい -->
-                        </select>
-                    </td>
+                        <form:select path="SaerchForm.status">
+                            <form:option value="ACTV">ACTV</option>
+                            <form:option value="INIT">INIT</option>
+                            <form:option value="RMVD">RMVD</option>
+                        </form:select>
+                    </td><!-- (5) -->
+                    <td><form:errors path="SaerchForm.status"/></td>
+                    <td><label for="status">状態:</label></td>
                 </tr>
                 <tr>
                     <td>&nbsp;</td>
-                    <td><input type="submit" name="Search" value="Search" /></td>
+                    <td><button type="submit" name="Search" value="">検索</button></td>
                 </tr>
             </table>
         </form:form>

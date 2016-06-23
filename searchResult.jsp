@@ -12,12 +12,14 @@
     <div id="resultList">
 <!--         <ul> -->
             <!-- (3) -->
-            form:form modelAttribute="SaerchResult">
+            <form:form modelAttribute="SaerchResult">
                 <table>
-                <c:forEach items="${SaerchResult.results}" var="result" varStatus="status">
+                <c:forEach items="${SaerchResult}" var="result" varStatus="status">
                     <tr>
                         <td><form:radiobutton path="index" value=${status.index}></form></td>
                         <td>${f:h(result.userId)}</td>
+                       <!--  <form:hidden path="userId" /> -->
+
                         <td>${f:h(result.name)}</td>
                         <td>${f:h(result.dateOfBirth)}</td>
                         <td>${f:h(result.phoneNumber)}</td>
@@ -29,9 +31,9 @@
                     </tr>
                     </c:forEach>
                 </table>
-                <input type="submit" name="update" value="update" /> <!-- (2) -->
-                <input type="submit" name="delete" value="delete" /> <!-- (3) -->
-            </form>
+                <button type="submit" name="update" value="">更新</button>
+                <button type="submit" name="delete" value="">削除</button>
+            </form:form>
         <!-- </ul> -->
     </div>
 
